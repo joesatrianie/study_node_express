@@ -1,9 +1,10 @@
-const amount = 12;
+// const te = require("fs");
+const { readFile, writeFile } = require("fs");
 
-if (amount < 10) {
-  console.log("small number");
-} else {
-  console.log("large number");
-}
-
-console.log(`hey it's my first node app!!`);
+readFile("./content/first.txt", "utf8", (err, result) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log(result);
+});
