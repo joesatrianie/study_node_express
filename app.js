@@ -1,10 +1,15 @@
-// const te = require("fs");
-const { readFile, writeFile } = require("fs");
+const http = require("http");
 
-readFile("./content/first.txt", "utf8", (err, result) => {
-  if (err) {
-    console.log(err);
-    return;
+const server = http.createServer((req, res) => {
+  console.log(req);
+  if (req.url === "/") {
+    res.write("<h1>welcome to our hdfdome page</h1>");
+    res.end("<h2>thi s is the end</h2>");
   }
-  console.log(result);
+  if (req.url === "/about") {
+    res.write("this is about");
+    res.end();
+  }
 });
+
+server.listen(5000);
